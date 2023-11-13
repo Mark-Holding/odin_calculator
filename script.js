@@ -1,9 +1,14 @@
-const display = document.getElementById('#displ');
+const display = document.getElementById('displ');
 
 document.addEventListener('keydown', function(event){
-    display.value = event.key;
+    const validKeys = ['0','1','2','3','4','5','6','7','8','9','+','-','/','*']
+    if(validKeys.includes(event.key)){
+    pressedKeys += event.key;
+    display.value = pressedKeys;
+    }  
 })
 
+let pressedKeys = '';
 let num1;
 let num2;
 let operator;
@@ -36,3 +41,4 @@ function operate(a, b, c){
     }
 }
 
+console.log(displayValue)

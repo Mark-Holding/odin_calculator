@@ -2,7 +2,7 @@
     width: 215px;
 }
 
-.display {
+.topDisplay {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
