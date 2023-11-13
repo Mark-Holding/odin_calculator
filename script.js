@@ -1,14 +1,26 @@
 const display = document.getElementById('displ');
-
-document.addEventListener('keydown', function(event){
-    const validKeys = ['0','1','2','3','4','5','6','7','8','9','+','-','/','*']
-    if(validKeys.includes(event.key)){
-    pressedKeys += event.key;
-    display.value = pressedKeys;
-    }  
-})
-
 let pressedKeys = '';
+let calcArray = [];
+
+document.addEventListener('keydown', function(event) {
+    const validKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '-', '/', '*'];
+
+    if (validKeys.includes(event.key)) {
+        pressedKeys += event.key;
+        display.value = pressedKeys;
+    } else if (event.key === '=') {
+        calcArray = pressedKeys.split(/([+\-*\/])/).filter(Boolean);
+        // Remove the following line to keep the display value after processing the calculation
+        display.value = '';
+
+        console.log('Pressed Keys:', pressedKeys);
+        console.log('Calc Array:', calcArray);
+    }
+});
+
+
+
+
 let num1;
 let num2;
 let operator;
@@ -41,4 +53,3 @@ function operate(a, b, c){
     }
 }
 
-console.log(displayValue)
