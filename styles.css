@@ -2,6 +2,25 @@
     width: 215px;
 }
 
+.display {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.calcDisplay {
+    text-align: right;
+    font-size: 20px;
+    height: 20px;
+}
+
+
+.bigButtons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
 .smallButtons {
     display: grid;
     grid-template-columns: repeat(4, 50px);
@@ -10,8 +29,5 @@
     row-gap: 5px;
 }
 
-.bigButtons {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
+
+

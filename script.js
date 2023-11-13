@@ -1,3 +1,9 @@
+const display = document.getElementById('#displ');
+
+document.addEventListener('keydown', function(event){
+    display.value = event.key;
+})
+
 let num1;
 let num2;
 let operator;
