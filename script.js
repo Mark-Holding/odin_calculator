@@ -1,9 +1,11 @@
 const display = document.getElementById('displ');
+const clear = document.getElementById('clear');
+const del = document.getElementById('delete');
 let pressedKeys = '';
 let calcArray = [];
 
 document.addEventListener('keydown', function(event) {
-    const validKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '-', '/', '*'];
+    const validKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '-', '/', '*', '.'];
 
     if (validKeys.includes(event.key)) {
         pressedKeys += event.key;
@@ -19,10 +21,13 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
+clear.addEventListener('click', clearAll);
+del.addEventListener('click', delLast);
+
 function operate(a, b, c){
     a = Number(a);
     b = Number(b);
-    
+
     if(c === '+') {
         return add(a, b);
     } else if (c === '-'){
@@ -33,11 +38,6 @@ function operate(a, b, c){
         return divide(a, b);
     }
 }
-
-
-let num1;
-let num2;
-let operator;
 
 function add(a , b) {
     return a + b;
@@ -56,4 +56,13 @@ function divide(a, b) {
 };
 
 
+function clearAll(){
+    display.value = '';
+    pressedKeys = '';
+    calcArray = [];
+}
 
+function delLast(){
+    pressedKeys = pressedKeys.slice(0, -1);
+    display.value = pressedKeys;
+}
